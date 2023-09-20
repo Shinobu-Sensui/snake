@@ -1,0 +1,189 @@
+
+:root {
+    --jaune:#fab567;
+}
+
+* {
+    margin:0;
+    padding:0;
+}
+
+body {
+    background-color: #000000;
+    color:white;
+    display:flex;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    align-items: center;
+    height:100vh;
+}
+
+.planche {
+    display: grid;
+    grid-template-columns: repeat(18, 30px); 
+    grid-template-rows: repeat(20, 30px); 
+    background-color: #080707; /* Color for empty cells */
+    gap:1px;
+}
+
+.cell {
+    background-color: rgb(154, 151, 132); 
+    transition: background-color 0.3s; /* Makes color changes more smooth */
+    grid-column: span 1;
+    grid-row: span 1;
+    border-radius: 70%;    
+}
+
+
+.grid-cell.even {
+    background-color: rgb(16, 16, 16); /* Navy Blue */
+}
+
+.grid-cell.odd {
+    background-color: #6e4bc260; /* Golden Rose */
+}
+
+.grid-cell {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+}
+
+
+.head {
+    background-color: #f67029; /* Different color for snake's head */
+    border-radius:100%;
+    position: relative;
+}
+
+.eyesLeft {
+    position: absolute;
+    width:10px;
+    height:10px;
+    border-radius: 50%;
+    background-color: black;
+    right:5px;
+    top:3px;
+}
+
+
+.eyesRight {
+    position: absolute;
+    width:10px;
+    height:10px;
+    border-radius: 50%;
+    background-color: black;
+    right:5px;
+    bottom:3px;
+}
+
+.tail {
+    background-color: var(--jaune); /* Different color for snake's tail */
+    border-radius: 0;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+
+.body {
+    background-color: #cc74e7; /* Different color for snake's body */
+    border-radius: 100%;
+}
+
+
+.apple {
+    width:30px;
+    height:30px;
+    background-image: url('/public/pomme.png');
+    z-index:1
+}
+
+.score {
+   position: absolute;
+   width:280px;
+   height:280px;
+   border-radius: 5px;
+   border: solid 1px rgba(128, 128, 128, 0.515);
+   right:5%;
+   padding:10px;
+   display:flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   align-items: center;
+}
+
+.time, .pomme {
+    color: white;
+    font-size:30px;
+}
+
+.action {
+    outline:none;
+    border:none;
+    padding:7px;
+    opacity: 0.9;
+    border-radius: 2px;
+    font-size:15px;
+    font-weight: bold;
+    width:100px;
+}
+
+.container-snake {
+    display:flex;
+    justify-content: space-between;
+}
+
+.active {
+    background-color: rgb(246, 240, 240);
+}
+
+.state {
+    font-size:25px;
+    color: var(--jaune);
+}
+
+.stop {
+    background-color: rgb(149, 238, 133);
+}
+
+@media (max-width:1400px){
+    .planche {
+        background-color: red;
+    }
+
+    .score {
+        width:15%;
+        height:20%
+     }
+
+     .pomme, .time {
+        font-size:25px;
+    }
+
+}
+
+@media (max-width:1100px){
+    .planche {
+        background-color: rgb(89, 255, 0);
+    }
+
+    .score {
+        width:10%;
+        height:15%;
+        font-size:15px;
+        right:15px;
+    }
+
+    .pomme, .time {
+        font-size:20px;
+    }
+}
+
+@media (max-width:900px){
+    
+    body {
+        background-color: rgb(5, 4, 9);
+    }
+    .planche, .score {
+        display: none;
+    }
+}
